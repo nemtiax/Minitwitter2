@@ -1,4 +1,6 @@
 Minitwitter2::Application.routes.draw do
+  resources :follower_connections
+
   resources :followers
 
   get "login" => 'login#login'

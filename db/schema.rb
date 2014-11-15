@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115020445) do
+ActiveRecord::Schema.define(version: 20141115193340) do
 
-  create_table "followers", force: true do |t|
-    t.integer  "follower"
-    t.integer  "followee"
+  create_table "follower_connections", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

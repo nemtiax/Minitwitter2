@@ -1,0 +1,29 @@
+<h1>Listing follower_connections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Follower</th>
+      <th>Followee</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @follower_connections.each do |follower_connection| %>
+      <tr>
+        <td><%= follower_connection.follower_id %></td>
+        <td><%= follower_connection.followee_id %></td>
+        <td><%= link_to 'Show', follower_connection %></td>
+        <td><%= link_to 'Edit', edit_follower_connection_path(follower_connection) %></td>
+        <td><%= link_to 'Destroy', follower_connection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Follower connection', new_follower_connection_path %>

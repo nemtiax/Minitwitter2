@@ -17,5 +17,5 @@ Tweet.create([{body: "This is a tweet that Alice wrote", user_id: alice.id},
 {body: "This is another tweet that Alice wrote", user_id: alice.id},
 {body: "This is a tweet that Bob wrote", user_id: bob.id}, {body: "This is another tweet that Bob wrote", user_id: bob.id}])
 
-Follower.destroy_all
-Follower.create([{follower: alice.id, followee: bob.id}, {follower: alice.id, followee: carol.id}, {follower: bob.id, followee: alice.id}, {follower: carol.id, followee: bob.id}])
+FollowerConnection.destroy_all
+FollowerConnection.create([{:follower => alice, :followee => bob}, {follower: alice, followee: carol}, {follower: bob, followee: alice}, {follower: carol, followee: bob}])

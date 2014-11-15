@@ -18,7 +18,7 @@ class FollowersControllerTest < ActionController::TestCase
 
   test "should create follower" do
     assert_difference('Follower.count') do
-      post :create, follower: { followee: @follower.followee, follower: @follower.follower }
+      post :create, follower: { followee_id: @follower.followee_id, follower_id: @follower.follower_id }
     end
 
     assert_redirected_to follower_path(assigns(:follower))
@@ -35,7 +35,7 @@ class FollowersControllerTest < ActionController::TestCase
   end
 
   test "should update follower" do
-    patch :update, id: @follower, follower: { followee: @follower.followee, follower: @follower.follower }
+    patch :update, id: @follower, follower: { followee_id: @follower.followee_id, follower_id: @follower.follower_id }
     assert_redirected_to follower_path(assigns(:follower))
   end
 
