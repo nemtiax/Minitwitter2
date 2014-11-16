@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 		redirect_to login_url
 	else 
 		session[:user_id] = @user.id
-		redirect_to user_url(@user)
+		redirect_to home_url
 	end
   
   end

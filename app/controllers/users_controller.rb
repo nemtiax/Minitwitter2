@@ -10,6 +10,20 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+	@tweets = @user.tweets
+  end
+  
+  def home
+	if(session[:user_id]== nil) 
+		redirect_to login_url
+	end
+	@user = User.find(session[:user_id])
+	@followed_tweets = []
+	@user.followees.each do |followee|
+		@followed_tweets << followee.tweets
+	end
+	@followed_tweets.flatten!
+	
   end
 
   # GET /users/new

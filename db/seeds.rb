@@ -6,16 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
-User.create([{name: 'Alice', email: 'alice@example.com', image_url: 'alice.png', password: 'password'}, {name: 'Bob', email: 'bob@example.com', image_url: 'bob.jpg', password: 'password'}, {name: 'Carol', email: 'carol@example.com', image_url: 'carol.jpg', password: 'password'}])
+User.create([{name: 'Alice', email: 'alice@example.com', image_url: 'alice.png', password: 'password'}, {name: 'Bob', email: 'bob@example.com', image_url: 'bob.jpg', password: 'password'}, {name: 'Carol', email: 'carol@example.com', image_url: 'carol.jpg', password: 'password'}, {name: 'Dave', email: 'dave@example.com', image_url: 'dave.png', password: 'password' }])
 
 alice = User.where(name: 'Alice').take
 bob = User.where(name: 'Bob').take
 carol = User.where(name: 'Carol').take
+dave = User.where(name: 'Dave').take
 
 Tweet.destroy_all
 Tweet.create([{body: "This is a tweet that Alice wrote", user_id: alice.id},
 {body: "This is another tweet that Alice wrote", user_id: alice.id},
-{body: "This is a tweet that Bob wrote", user_id: bob.id}, {body: "This is another tweet that Bob wrote", user_id: bob.id}])
+{body: "This is a tweet that Bob wrote", user_id: bob.id}, {body: "This is another tweet that Bob wrote", user_id: bob.id}, {body: "Dave wrote this tweet", poster: dave}, {body: "Dave also wrote this tweet", poster: dave}, {body: "Dave also wrote this third tweet", poster: dave}])
 
 FollowerConnection.destroy_all
-FollowerConnection.create([{:follower => alice, :followee => bob}, {follower: alice, followee: carol}, {follower: bob, followee: alice}, {follower: carol, followee: bob}])
+FollowerConnection.create([{:follower => alice, :followee => bob}, {follower: alice, followee: carol}, {follower: bob, followee: alice}, {follower: carol, followee: bob}, {follower: dave, followee: alice}, {follower: dave, followee: bob}, {follower: alice, followee: dave}])

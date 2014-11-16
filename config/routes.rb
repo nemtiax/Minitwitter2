@@ -1,14 +1,20 @@
 Minitwitter2::Application.routes.draw do
-  resources :follower_connections
+  #resources :follower_connections
 
-  resources :followers
+ 
 
+  root 'login#login'
+  
   get "login" => 'login#login'
   post "login" => 'login#auth'
   
-  resources :tweets
+  #resources :tweets
 
-  resources :users
+  #resources :users
+  
+  get "users/:id" => 'users#show'
+  get "home" => 'users#home', as: :home
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
