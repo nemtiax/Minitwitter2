@@ -18,11 +18,7 @@ class UsersController < ApplicationController
 		redirect_to login_url
 	end
 	@user = User.find(session[:user_id])
-	@followed_tweets = []
-	@user.followees.each do |followee|
-		@followed_tweets << followee.tweets
-	end
-	@followed_tweets.flatten!
+	@followed_tweets = get_followed_tweets(@user,10)
 	
   end
 
