@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
 		followed_tweets.sort_by! { |tweet| tweet.created_at }
 		followed_tweets.reverse.first(num_results)
 	end
+	
+	def get_recent_tweets(num_results)
+		Tweet.all.order(:created_at).reverse.first(num_results)
+	end
 
   
 end

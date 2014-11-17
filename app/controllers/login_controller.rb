@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   def login
+	@tweets = get_recent_tweets(10)
   end
   
   def auth
