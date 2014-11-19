@@ -1,9 +1,8 @@
 <h1>Welcome, <%= @user.name %>!</h1>
-<table class="table table-striped"> 
-<% @followed_tweets.each do |tweet| %>
-<tr>
-	<td><%= link_to(image_tag(tweet.poster.image_url, class: "img-thumbnail", height: "64", width: "64"), action: "show", controller: "users", id: tweet.poster.id)  %></td>
-	<td><%= link_to(tweet.poster.name, action: "show", controller: "users", id: tweet.poster.id)  %> sez: "<%= tweet.body %>" at <%= tweet.created_at.strftime("%Y-%m-%d") %> </td>
-</tr>
+<%= form_tag("/tweets", method: "post") do %>
+	<%= label_tag(:tweet_text, "Tweet Something:") %>
+	<%= text_field_tag(:tweet_text) %>
+	<%= submit_tag("Tweet It!") %>
 <% end %>
-</table>
+<h1>Tweets You Follow</h1>
+<%= render partial: "tweets/tweet_display", locals: {tweets: @followed_tweets} %>
