@@ -14,4 +14,8 @@ class LoginController < ApplicationController
   
   end
   
+  def register
+  
+  end
+  
 end

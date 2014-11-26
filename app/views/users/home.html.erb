@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Welcome, <%= @user.name %>!</h1>
 <%= form_tag("/tweets", method: "post") do %>
 	<%= label_tag(:tweet_text, "Tweet Something:") %>
@@ -6,3 +7,4 @@
 <% end %>
 <h1>Tweets You Follow</h1>
 <%= render partial: "tweets/tweet_display", locals: {tweets: @followed_tweets} %>
+</div>
