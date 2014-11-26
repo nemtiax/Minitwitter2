@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-	@tweets = get_users_tweets(@user,10)
-	@followees = @user.followees
+	@tweets = @user.tweets
   end
   
   def home

@@ -9,4 +9,16 @@
 	<%= submit_tag("Login") %>
 <% end %>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+<h1>Recent Tweets</h1>
+<table class="table table-striped"> 
+<% @tweets.each do |tweet| %>
+<tr>
+	<td><%= link_to(image_tag(tweet.poster.image_url, class: "img-thumbnail", height: "64", width: "64"), action: "show", controller: "users", id: tweet.poster.id)  %></td>
+	<td><%= link_to(tweet.poster.name, action: "show", controller: "users", id: tweet.poster.id)  %> sez: "<%= tweet.body %>" at <%= tweet.created_at.strftime("%Y-%m-%d") %> </td>
+</tr>
+<% end %>
+</table>
+>>>>>>> parent of 2a9d67d... Added Partials
