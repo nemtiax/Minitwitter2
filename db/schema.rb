@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115193340) do
+ActiveRecord::Schema.define(version: 20141123015052) do
 
   create_table "follower_connections", force: true do |t|
     t.integer  "follower_id"
@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(version: 20141115193340) do
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password"
+    t.string   "crypted_password"
+    t.string   "salt"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

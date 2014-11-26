@@ -3,10 +3,12 @@ Minitwitter2::Application.routes.draw do
 
  
 
-  root 'login#login'
+  root 'root#show'
   
   get "login" => 'login#login'
   post "login" => 'login#auth'
+  post "register" => 'login#register'
+  get "register" => 'login#register'
   
   #resources :tweets
 

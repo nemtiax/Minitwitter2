@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
-User.create([{name: 'Alice', email: 'Alice@example.com', image_url: 'Alice.png', password: 'password'},{name: 'Bob', email: 'Bob@example.com', image_url: 'Bob.png', password: 'password'},{name: 'Carol', email: 'Carol@example.com', image_url: 'Carol.png', password: 'password'},{name: 'Dave', email: 'Dave@example.com', image_url: 'Dave.png', password: 'password'},{name: 'Eve', email: 'Eve@example.com', image_url: 'Eve.png', password: 'password'}])
+User.create([{name: 'Alice', email: 'Alice@example.com', image_url: 'Alice.png', password: 'password', password_confirmation: 'password'},{name: 'Bob', email: 'Bob@example.com', image_url: 'Bob.png', password: 'password', password_confirmation: 'password'},{name: 'Carol', email: 'Carol@example.com', image_url: 'Carol.png', password: 'password', password_confirmation: 'password'},{name: 'Dave', email: 'Dave@example.com', image_url: 'Dave.png', password: 'password', password_confirmation: 'password'},{name: 'Eve', email: 'Eve@example.com', image_url: 'Eve.png', password: 'password', password_confirmation: 'password'}])
 alice = User.where(name: 'Alice').take
 bob = User.where(name: 'Bob').take
 carol = User.where(name: 'Carol').take

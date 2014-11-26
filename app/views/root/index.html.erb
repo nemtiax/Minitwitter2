@@ -1,0 +1,6 @@
+<%= render partial: "notice", :locals => {:flash => flash} %>
+<h1>Welcome to Minitwitter!</h1>
+link_to 'Login'
+link_to 'Register', register_path
+<h1>Recent Tweets</h1>
+<%= render partial: "tweets/tweet_display", locals: {tweets: @tweets} %>

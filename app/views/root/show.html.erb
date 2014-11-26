@@ -1,0 +1,7 @@
+<div class="container">
+<h1>Welcome to Minitwitter!</h1>
+<%= link_to 'login', login_path %>
+<%= link_to 'Register', register_path %>
+<h1>Recent Tweets</h1>
+<%= render partial: "tweets/tweet_display", locals: {tweets: @tweets} %>
+</div>
