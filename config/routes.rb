@@ -8,11 +8,12 @@ Minitwitter2::Application.routes.draw do
   get "login" => 'login#login'
   post "login" => 'login#auth'
   
-  get "register" => 'login#register'
+  get "register" => 'users#new'
+  
   
   #resources :tweets
 
-  #resources :users
+  resources :users
   
   get "follower_connections/:id" => 'follower_connections#new'
   get "users/:id" => 'users#show'
