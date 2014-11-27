@@ -14,7 +14,15 @@ class FollowerConnectionsController < ApplicationController
 
   # GET /follower_connections/new
   def new
-    @follower_connection = FollowerConnection.new
+	if(session[:user_id]== nil) 
+		redirect_to login_url
+	end
+	@follower = User.find(session[:user_id])
+	@followee = User.find(params[:id])
+	FollowerConnection.create(follower: @follower, followee: @followee)
+	redirect_to(:back)
+  
+    
   end
 
   # GET /follower_connections/1/edit

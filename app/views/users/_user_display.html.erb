@@ -1,7 +1,10 @@
 <table class="table table-striped"> 
 <% users.each do |user| %>
 <tr>
-	<td><%= link_to(image_tag(user.image_url, class: "img-thumbnail", height: "64", width: "64"), action: "show", controller: "users", id: user.id)  %> <%= user.name %></td>
+	<td><%= link_to(image_tag(user.image_url, class: "img-thumbnail", height: "64", width: "64"), action: "show", controller: "users", id: user.id)  %> <%= user.name %> 
+	<br> 
+	<%= link_to("Follow!", action: "new", controller: "follower_connections", id: user.id) %>
+	</td>
 
 	<td>
 	<ul>

@@ -14,6 +14,7 @@ Minitwitter2::Application.routes.draw do
 
   #resources :users
   
+  get "follower_connections/:id" => 'follower_connections#new'
   get "users/:id" => 'users#show'
   get "home" => 'users#home', as: :home
   
