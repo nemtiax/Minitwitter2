@@ -1,4 +1,7 @@
 <div class="container">
+<% if notice %>
+<div class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 <%= render partial: "users/user_display", locals: {users: [@user]} %>
 <h1>Tweets from <%= @user.name %></h1>
 <%= render partial: "tweets/tweet_display", locals: {tweets: @tweets} %>

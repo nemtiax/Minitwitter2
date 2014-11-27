@@ -20,7 +20,7 @@ class FollowerConnectionsController < ApplicationController
 	@follower = User.find(session[:user_id])
 	@followee = User.find(params[:id])
 	FollowerConnection.create(follower: @follower, followee: @followee)
-	redirect_to(:back)
+	redirect_to(:back, notice: "You are now following #{@followee.name}!")
   
     
   end

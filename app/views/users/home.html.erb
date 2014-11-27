@@ -1,4 +1,7 @@
 <div class="container">
+<% if notice %>
+<div class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 <h1>Welcome, <%= @user.name %>!</h1>
 <%= form_tag("/tweets", method: "post") do %>
 	<%= label_tag(:tweet_text, "Tweet Something:") %>

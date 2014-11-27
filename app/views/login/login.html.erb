@@ -1,4 +1,7 @@
 <div class="container">
+<% if notice %>
+<div class="alert alert-info" role="alert"><%= notice %></div>
+<% end %>
 <h1>Login</h1>
 <div>
 <%= form_tag("/login", method: "post") do %>
