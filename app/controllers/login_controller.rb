@@ -5,7 +5,7 @@ class LoginController < ApplicationController
   end
   
   def auth
-	@user = User.where(name: params[:name], hashed_password: Digest::MD5.hexdigest(params[:pass])).first
+	@user = User.authenticate(params[:name], params[:pass])
 	if(@user == nil)
 		redirect_to login_url
 	else 

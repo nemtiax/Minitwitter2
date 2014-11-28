@@ -1,4 +1,3 @@
-require 'digest'
 class User < ActiveRecord::Base
 	has_many :tweets
 	has_many :follower_connections, :foreign_key => :follower_id, :dependent => :destroy
@@ -13,7 +12,15 @@ class User < ActiveRecord::Base
 
   def password=(my_password)
     
-	self.hashed_password = Digest::MD5.hexdigest(my_password)
+	self.hashed_password = hashPassword(my_password)
+  end
+  
+  def self.authenticate(auth_name, auth_password) 
+	User.where(name: auth_name, hashed_password: hashPassword(auth_password)).first
+  end
+  
+  def self.hashPassword(password) 
+	Digest::MD5.hexdigest(password)
   end
 	
 end

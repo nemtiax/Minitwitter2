@@ -1,3 +1,4 @@
+require 'digest'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -24,6 +25,7 @@ class ApplicationController < ActionController::Base
 	def get_recent_tweets(num_results)
 		Tweet.all.order(:created_at).reverse.first(num_results)
 	end
+
 
   
 end
