@@ -1,0 +1,25 @@
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">Minitwitter</a>
+        </div>
+        
+          <ul class="nav navbar-nav">
+            <li><%= link_to("Home", action: "home", controller: "users") %> </li>
+			 <li><%= link_to("Firehose", action: "index", controller: "tweets") %> </li>
+			<% if(session[:user_id] == nil) %>
+			<li><%= link_to("Login", action: "login", controller: "login") %> </li>
+			<% else %>
+			<li><%= link_to("Logout", action: "logout", controller: "login") %> </li>
+			<% end %>
+          </ul>
+		  
+		  <% if(session[:user_name] != nil) %>
+		  <div class="navbar-header navbar-right">
+			<a class="navbar-brand">Welcome, <%= session[:user_name] %> </a>
+		  </div>
+		  <% end %>
+      
+        
+      </div>
+    </nav>

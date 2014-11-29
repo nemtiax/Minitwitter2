@@ -6,6 +6,7 @@ Minitwitter2::Application.routes.draw do
   root 'login#login'
   
   get "login" => 'login#login'
+  get "logout" => 'login#logout'
   post "login" => 'login#auth'
   
   get "register" => 'users#new'
@@ -19,6 +20,7 @@ Minitwitter2::Application.routes.draw do
   get "users/:id" => 'users#show'
   get "home" => 'users#home', as: :home
   get "register" => 'login#register'
+  get "tweets" => 'tweets#index'
   
   post "tweets" => 'tweets#create'
   
