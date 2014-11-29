@@ -5,6 +5,7 @@ class LoginController < ApplicationController
   
   def logout 
 	session.delete :user_id
+	session.delete :user_name
 	redirect_to login_url
   end
   
