@@ -18,6 +18,7 @@ Minitwitter2::Application.routes.draw do
   get "follower_connections/:id" => 'follower_connections#new'
   get "users/:id" => 'users#show'
   get "home" => 'users#home', as: :home
+  get "register" => 'login#register'
   
   post "tweets" => 'tweets#create'
   

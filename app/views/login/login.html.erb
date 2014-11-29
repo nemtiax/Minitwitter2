@@ -11,6 +11,8 @@
 	<%= text_field_tag(:pass) %>
 	<%= submit_tag("Login") %>
 <% end %>
+or
+<%= link_to("Register!", action: "register", controller: "login") %>
 </div>
 <h1>Recent Tweets</h1>
 <%= render partial: "tweets/tweet_display", locals: {tweets: @tweets} %>
