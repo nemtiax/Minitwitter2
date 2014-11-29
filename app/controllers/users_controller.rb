@@ -19,9 +19,10 @@ class UsersController < ApplicationController
   def home
 	if(session[:user_id]== nil) 
 		redirect_to login_url
+	else 
+		@user = User.find(session[:user_id])
+		@followed_tweets = get_followed_tweets(@user,10)
 	end
-	@user = User.find(session[:user_id])
-	@followed_tweets = get_followed_tweets(@user,10)
 	
   end
 
