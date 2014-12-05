@@ -9,13 +9,7 @@ class ApplicationController < ActionController::Base
 	
 
 	def get_followed_tweets(user, num_results)
-		followed_tweets = []
-		user.followees.each do |followee|
-			followed_tweets << followee.tweets.order(:created_at).reverse.first(num_results)
-		end
-		followed_tweets.flatten!
-		followed_tweets.sort_by! { |tweet| tweet.created_at }
-		followed_tweets.reverse.first(num_results)
+		user.followed_tweets.order(:created_at).reverse.first(num_results)
 	end
 	
 	def get_users_tweets(user,num_results)
