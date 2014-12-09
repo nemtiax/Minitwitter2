@@ -16,5 +16,5 @@ or
 <%= link_to("Register!", action: "register", controller: "login") %>
 </div>
 <h1>Recent Tweets</h1>
-<%= render partial: "tweets/tweet_display_text_only", locals: {tweets: @tweets} %>
+<%= render partial: "tweets/tweet_display", locals: {tweets: @tweets} %>
 </div>
